@@ -27,7 +27,7 @@
         <!-- Blog -->
         <section id="blog" class="tab-section">
             <article class="blog-post">
-                <img src="https://via.placeholder.com/300x150" alt="Blog Image" />
+                <img src="./assets/images/blog.png" alt="Blog Image" />
                 <h2>How to Prepare for Therapy</h2>
                 <p>Therapy is a journey. Here’s how to get the most from your sessions and prepare mentally...</p>
             </article>
@@ -40,31 +40,141 @@
                     <span><span class="dot red"></span> New</span>
                     <span><span class="dot green"></span> Completed</span>
                 </div>
-
                 <div class="date-nav">
                     <button onclick="changeDate(-1)">&#8592;</button>
                     <span id="currentDate">November 18, 2025</span>
                     <button onclick="changeDate(1)">&#8594;</button>
                 </div>
-
                 <div class="calendar-tabs">
                     <button class="tab-btn active">Daily</button>
-                    <button class="tab-btn" onclick="alert('Switch to Weekly')">Weekly</button>
-                    <button class="tab-btn" onclick="alert('Switch to Monthly')">Monthly</button>
+                    <button class="tab-btn" onclick="switchView('calendar-weekly')">Weekly</button>
+                    <button class="tab-btn" onclick="switchView('calendar-monthly')">Monthly</button>
                 </div>
             </div>
 
-            <div class="time-slots">
-                <!-- Time slots from 2:00 PM to 5:00 PM -->
-                <div class="slot">02:00 PM</div>
-                <div class="slot">02:30 PM</div>
-                <div class="slot">03:00 PM</div>
-                <div class="slot">03:30 PM</div>
-                <div class="slot">04:00 PM</div>
-                <div class="slot">04:30 PM</div>
-                <div class="slot">05:00 PM</div>
-            </div>
+            <div class="time-slots" id="dailySlots">
+                <!-- JS will generate slots dynamically -->
+            </div><!-- WEEKLY VIEW SECTION -->
+            <section id="calendar-weekly" class="tab-section-2" >
+                <div class="calendar-header">
+                    <div class="legend">
+                        <span><span class="dot red"></span> New</span>
+                        <span><span class="dot green"></span> Completed</span>
+                    </div>
+                    <div class="date-nav">
+                        <input type="date" id="weekStart"> to
+                        <input type="date" id="weekEnd">
+                    </div>
+                    <div class="calendar-tabs">
+                        <button class="tab-btn" onclick="switchView('calendar-daily')">Daily</button>
+                        <button class="tab-btn active">Weekly</button>
+                        <button class="tab-btn" onclick="switchView('calendar-monthly')">Monthly</button>
+                    </div>
+                </div>
 
+                <div class="week-grid">
+                    <div class="week-header">
+                        <div></div>
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="week-rows" id="weekGrid"></div>
+                </div>
+
+                <footer class="calendar-footer">
+                    <div class="nav-icons">
+                        <span onclick="switchView('home')">🏠</span>
+                        <span onclick="switchView('blog')">📰</span>
+                        <span class="active">📅</span>
+                        <span onclick="switchView('profile')">👤</span>
+                    </div>
+                    <div class="footer-info">
+                        <img src="https://via.placeholder.com/30" alt="logo" />
+                        <span>You are logged in as professional</span>
+                        <span>⬇️</span>
+                    </div>
+                </footer>
+            </section>
+
+            <!-- MONTHLY VIEW SECTION -->
+            <section id="calendar-monthly" class="tab-section-2" >
+                <div class="calendar-header">
+                    <div class="legend">
+                        <span><span class="dot red"></span> New</span>
+                        <span><span class="dot green"></span> Completed</span>
+                    </div>
+                    <div class="date-nav">
+                        <input type="month" id="monthSelect" />
+                    </div>
+                    <div class="calendar-tabs">
+                        <button class="tab-btn" onclick="switchView('calendar-daily')">Daily</button>
+                        <button class="tab-btn" onclick="switchView('calendar-weekly')">Weekly</button>
+                        <button class="tab-btn active">Monthly</button>
+                    </div>
+                </div>
+
+                <div class="month-grid" id="monthGrid"></div>
+
+                <footer class="calendar-footer">
+                    <div class="nav-icons">
+                        <span onclick="switchView('home')">🏠</span>
+                        <span onclick="switchView('blog')">📰</span>
+                        <span class="active">📅</span>
+                        <span onclick="switchView('profile')">👤</span>
+                    </div>
+                    <div class="footer-info">
+                        <img src="https://via.placeholder.com/30" alt="logo" />
+                        <span>You are logged in as professional</span>
+                        <span>⬇️</span>
+                    </div>
+                </footer>
+            </section>
+
+
+            <footer class="calendar-footer">
+                <div class="nav-icons">
+                    <span onclick="switchView('home')">🏠</span>
+                    <span onclick="switchView('blog')">📰</span>
+                    <span class="active">📅</span>
+                    <span onclick="switchView('profile')">👤</span>
+                </div>
+                <div class="footer-info">
+                    <img src="https://via.placeholder.com/30" alt="logo" />
+                    <span>You are logged in as professional</span>
+                    <span>⬇️</span>
+                </div>
+            </footer>
+
+            <!-- Appointment Popup -->
+            <div class="popup" id="appointmentPopup">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closePopup()">✖</span>
+                    <div class="status-dot" id="popupStatusDot"></div>
+                    <h3 id="popupTitle">New Appointment</h3>
+                    <input type="text" id="firstName" placeholder="First Name" />
+                    <input type="text" id="lastName" placeholder="Last Name" />
+                    <input type="text" id="phone" placeholder="Phone Number" />
+                    <select id="service">
+                        <option value="">Select service</option>
+                    </select>
+                    <input type="file" id="photo" />
+                    <input type="text" id="popupDate" readonly />
+                    <input type="text" id="popupTime" readonly />
+                    <textarea id="description" placeholder="Service description"></textarea>
+
+                    <div class="popup-buttons" id="popupActions">
+                        <button onclick="saveAppointment()">Add Appointment</button>
+                        <button onclick="completeAppointment()">Complete Appointment</button>
+                        <button onclick="cancelAppointment()">Cancel Appointment</button>
+                        <button onclick="closePopup()">Close</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Profile -->
