@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <header>
+        <div class=""></div>
+        <div class="power-btn"><img src="./assets/images/header-btn.png" alt=""></div>
+    </header>
+
+    <main>
+        <!-- Home -->
+        <section id="home" class="tab-section active">
+            <div class="profile-card">
+                <img src="./assets/images/Frame 5.png" alt="User" />
+                <h2>Dr. Nila Clement</h2>
+                <p>Child Psychologist</p>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog" class="tab-section">
+            <article class="blog-post">
+                <img src="https://via.placeholder.com/300x150" alt="Blog Image" />
+                <h2>How to Prepare for Therapy</h2>
+                <p>Therapy is a journey. Here’s how to get the most from your sessions and prepare mentally...</p>
+            </article>
+        </section>
+
+        <!-- Calendar Daily View -->
+        <section id="calendar-daily" class="tab-section">
+            <div class="calendar-header">
+                <div class="legend">
+                    <span><span class="dot red"></span> New</span>
+                    <span><span class="dot green"></span> Completed</span>
+                </div>
+
+                <div class="date-nav">
+                    <button onclick="changeDate(-1)">&#8592;</button>
+                    <span id="currentDate">November 18, 2025</span>
+                    <button onclick="changeDate(1)">&#8594;</button>
+                </div>
+
+                <div class="calendar-tabs">
+                    <button class="tab-btn active">Daily</button>
+                    <button class="tab-btn" onclick="alert('Switch to Weekly')">Weekly</button>
+                    <button class="tab-btn" onclick="alert('Switch to Monthly')">Monthly</button>
+                </div>
+            </div>
+
+            <div class="time-slots">
+                <!-- Time slots from 2:00 PM to 5:00 PM -->
+                <div class="slot">02:00 PM</div>
+                <div class="slot">02:30 PM</div>
+                <div class="slot">03:00 PM</div>
+                <div class="slot">03:30 PM</div>
+                <div class="slot">04:00 PM</div>
+                <div class="slot">04:30 PM</div>
+                <div class="slot">05:00 PM</div>
+            </div>
+
+        </section>
+
+        <!-- Profile -->
+        <section id="profile" class="tab-section">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+                    <div class="profile-info">
+                        <h1>Nikki Chase</h1>
+                        <p class="profession">Hair stylist/makeup artist</p>
+                    </div>
+                </div>
+                <form class="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password:</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password:</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password:</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                    <button type="submit" class="save-btn">Save</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="calendar-footer">
+        <div class="nav-icons">
+            <button><img class="active-btn" data-section="home" src="./assets/images/footer-icon.png"
+                    alt="Profile"></button>
+            <button><img class="active-btn" src="./assets/images/footer-icon-2.png" alt="blog"></button>
+            <button><img class="active-btn" src="./assets/images/footer-icon-3.png" alt="calender"></button>
+            <button><img class="active-btn" src="./assets/images/footer-icon-4.png" alt="Profile"></button>
+        </div>
+        <div class="footer-info">
+            <img class="footer-info-img" src="./assets/images/footer-logo.png" alt="logo" />
+            <span>You are logged in as professional</span>
+            <span><img src="./assets/images/Caret_Circle_Up.png" alt=""></span>
+        </div>
+    </footer>
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>

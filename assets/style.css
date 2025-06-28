@@ -1,0 +1,50 @@
+body{
+    max-width: 430px;
+    max-height: 932px;
+}
+/* header */
+header {
+    background: linear-gradient(to bottom, #ECECEC 0%, #DEDEDE 20%, #ECECEC 0%,  #ECECEC 20%);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*  */
+.tab-section {
+    display: none;
+}
+.tab-section.active {
+    display: block;
+}
+
+/* footer */
+.nav-icons {
+    background: #f6f6f6;
+    display: flex;
+    justify-content: space-evenly;
+}
+.active-btn:active{
+  border-bottom: #ce2020 2px solid;
+} 
+.nav-icons button {
+    border: 0;
+}
+.footer-info-img {
+    margin: -8px 0px 10px 10px;
+}
+.footer-info {
+    background: linear-gradient(to bottom, #ECECEC 0%, #DEDEDE 20%, #ECECEC 0%,  #ECECEC 20%);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer.calendar-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+
